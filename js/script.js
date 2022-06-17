@@ -1,5 +1,6 @@
 const contenidoInicio = document.querySelector('.contenido-inicio');
 const contenidoProyectos = document.querySelector('.proyectos');
+const contenidoCertificados = document.querySelector('.contenido-certificados');
 const contenidoSobreMi = document.querySelector('.contenido-sobre-mi');
 const contenidoContacto = document.querySelector('.contenido-contacto');
 
@@ -8,6 +9,7 @@ const mostrarProyectosEnlace = document.getElementsByClassName('ir-proyectos');
 const mostrarProyectosBtn = document.getElementsByClassName('ir-proyectos')[2];
 const mostrarSobreMiBtn = document.getElementsByClassName('ir-sobre-mi');
 const mostrarcontactoBtn = document.getElementsByClassName('ir-contacto');
+const mostrarCertificados = document.getElementsByClassName('ir-certificados');
 
 
 const btnProyectosPhp = document.querySelector('.php-proyectos');
@@ -32,6 +34,33 @@ const menuBurguer = document.querySelector('.menu-burguer');
 const btnCerrar = document.querySelector('.btn-cerrar');
 const menuLateral = document.querySelector('.menu-lateral');
 
+const galeriaImagenesConstancias = document.querySelectorAll('.img-cerficados');
+const imagenGrande = document.querySelector('.imagen-grande');
+const imagenGrandeContenedor = document.querySelector('.img-grande-contenido');
+const cerrarImagenGrande = document.querySelector('.cerrar-imagen-grande');
+
+const black = document.querySelector('.black');
+
+black.addEventListener('click', e=>{
+    window.location.href = "https://fyacar.github.io/portafoliojean/";
+});
+
+cerrarImagenGrande.addEventListener('click', e=>{   
+    imagenGrandeContenedor.classList.remove('imagen-grande-abierta')
+})
+
+if(galeriaImagenesConstancias){ 
+    console.log("hola");
+    galeriaImagenesConstancias.forEach(imagen => imagen.addEventListener('click', e=> {
+        let nombreSrc = imagen.src;
+        let imgSrc = "img/" + nombreSrc.split('img/')[1];
+        console.log(imgSrc);
+        imagenGrande.setAttribute('src', imgSrc);
+        imagenGrandeContenedor.classList.add('imagen-grande-abierta');    
+        console.log(imagenGrandeContenedor);
+        }));
+    
+}
 
 menuBurguer.addEventListener('click', e=>{
     menuLateral.classList.add('menu-abierto');
@@ -39,6 +68,8 @@ menuBurguer.addEventListener('click', e=>{
 btnCerrar.addEventListener('click', e=>{
     menuLateral.classList.remove('menu-abierto');
 })
+
+
 
 /* ++++++++++++++++++++++++++         FORMULARIO DE CONTACTO     ++++++++++++++++++++++++++++ */
 formularioContacto.addEventListener('submit', e=>{
@@ -69,6 +100,10 @@ menuCompleto[3].addEventListener('click',e=>{
     quitarSeleccionMenu();
     seleccionarElementoMenu(menuLateralCompleto[3], menuCompleto[3]);
 })
+/* menuCompleto[4].addEventListener('click',e=>{
+    quitarSeleccionMenu();
+    seleccionarElementoMenu(menuLateralCompleto[4], menuCompleto[4]);
+}) */
 menuLateralCompleto[0].addEventListener('click',e=>{
     quitarSeleccionMenu();
     seleccionarElementoMenu(menuLateralCompleto[0], menuCompleto[0]);
@@ -85,7 +120,11 @@ menuLateralCompleto[3].addEventListener('click',e=>{
     quitarSeleccionMenu();
     seleccionarElementoMenu(menuLateralCompleto[3], menuCompleto[3]);
 })
-
+/* menuLateralCompleto[4].addEventListener('click',e=>{
+    quitarSeleccionMenu();
+    seleccionarElementoMenu(menuLateralCompleto[4], menuCompleto[4]);
+})
+ */
 
 function seleccionarElementoMenu(elemento, elemento2){   
         elemento.classList.add('menu-lateral-seleccionado');
@@ -97,11 +136,13 @@ function quitarSeleccionMenu(){
     menuCompleto[1].classList.remove('menu-seleccionado');
     menuCompleto[2].classList.remove('menu-seleccionado');
     menuCompleto[3].classList.remove('menu-seleccionado');
+    /* menuCompleto[4].classList.remove('menu-seleccionado'); */
 
     menuLateralCompleto[0].classList.remove('menu-lateral-seleccionado');
     menuLateralCompleto[1].classList.remove('menu-lateral-seleccionado');
     menuLateralCompleto[2].classList.remove('menu-lateral-seleccionado');
     menuLateralCompleto[3].classList.remove('menu-lateral-seleccionado');
+   /*  menuLateralCompleto[4].classList.remove('menu-lateral-seleccionado'); */
 }
 
 opcionesTecnologias[0].addEventListener('click', e=>{
@@ -121,6 +162,7 @@ opcionesTecnologias[3].addEventListener('click', e=>{
     aplicarSeleccionTecnologias(opcionesTecnologias[3]);
 })
 
+
 function aplicarSeleccionTecnologias(elemento){
     elemento.classList.add('seleccionado');
 }
@@ -130,7 +172,7 @@ function quitarSeleccionTecnologias(){
     opcionesTecnologias[0].classList.remove('seleccionado');
     opcionesTecnologias[1].classList.remove('seleccionado');
     opcionesTecnologias[2].classList.remove('seleccionado');
-    opcionesTecnologias[3].classList.remove('seleccionado');
+    opcionesTecnologias[3].classList.remove('seleccionado');  
 }
 
 btnProyectosPhp.addEventListener('click', e=>{
@@ -181,6 +223,12 @@ mostrarProyectosEnlace[0].addEventListener('click' , e=>{
 mostrarProyectosEnlace[1].addEventListener('click' , e=>{
     mostrarElemento(contenidoProyectos);
 });
+mostrarCertificados[0].addEventListener('click' , e=>{
+    mostrarElemento(contenidoCertificados);
+});
+mostrarCertificados[1].addEventListener('click' , e=>{
+    mostrarElemento(contenidoCertificados);
+});
 
 mostrarcontactoBtn[0].addEventListener('click', e=>{
     mostrarElemento(contenidoContacto);
@@ -188,13 +236,13 @@ mostrarcontactoBtn[0].addEventListener('click', e=>{
 mostrarcontactoBtn[1].addEventListener('click', e=>{
     mostrarElemento(contenidoContacto);
 })
-mostrarSobreMiBtn[0].addEventListener('click', e=>{
+/* mostrarSobreMiBtn[0].addEventListener('click', e=>{
     mostrarElemento(contenidoSobreMi);
 })
 mostrarSobreMiBtn[1].addEventListener('click', e=>{
     mostrarElemento(contenidoSobreMi);
 })
-
+ */
 mostrarProyectosBtn.addEventListener('click' ,e=>{    
     quitarSeleccionMenu();
     seleccionarElementoMenu(menuLateralCompleto[1], menuCompleto[1]);
@@ -218,8 +266,9 @@ function mostrarElemento(elemento){
 function ocultarElementos(){
     ocultarElemento(contenidoInicio);
     ocultarElemento(contenidoProyectos);
-    ocultarElemento(contenidoSobreMi);
+    /* ocultarElemento(contenidoSobreMi); */
     ocultarElemento(contenidoContacto);
+    ocultarElemento(contenidoCertificados);
 }
 
 function ocultarElemento(elemento){
