@@ -236,13 +236,14 @@ mostrarcontactoBtn[0].addEventListener('click', e=>{
 mostrarcontactoBtn[1].addEventListener('click', e=>{
     mostrarElemento(contenidoContacto);
 })
+
 /* mostrarSobreMiBtn[0].addEventListener('click', e=>{
     mostrarElemento(contenidoSobreMi);
 })
 mostrarSobreMiBtn[1].addEventListener('click', e=>{
     mostrarElemento(contenidoSobreMi);
-})
- */
+}) */
+
 mostrarProyectosBtn.addEventListener('click' ,e=>{    
     quitarSeleccionMenu();
     seleccionarElementoMenu(menuLateralCompleto[1], menuCompleto[1]);
